@@ -32,12 +32,14 @@ const Main = () => {
                 <Link href={`/edit/${user.id}`}>
                   <Button variant="outline">Edit</Button>
                 </Link>
-                <Button
-                  variant="destructive"
-                  onClick={() => dispatch(deleteUser({ id: user.id }))}
-                >
-                  Delete
-                </Button>
+                {users.length > 1 && (
+                  <Button
+                    variant="destructive"
+                    onClick={() => dispatch(deleteUser({ id: user.id }))}
+                  >
+                    Delete
+                  </Button>
+                )}
               </td>
             </tr>
           ))}
