@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
   {
+    id: 1,
     name: "Youssef Habib",
     email: "yousefhabibelsehamy33@gamil.com",
-    id: 1,
   },
 ];
 
@@ -12,9 +12,10 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    addUser: (state, action) => {
+    createUser: (state, action) => {
       state.push(action.payload);
     },
+
     updateUser: (state, action) => {
       const { id, name, email } = action.payload;
 
@@ -25,6 +26,7 @@ const userSlice = createSlice({
         update.email = email;
       }
     },
+
     deleteUser: (state, action) => {
       const { id } = action.payload;
 
@@ -39,4 +41,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { addUser, updateUser, deleteUser } = userSlice.actions;
+export const { createUser, updateUser, deleteUser } = userSlice.actions;

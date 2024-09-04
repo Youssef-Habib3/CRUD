@@ -6,9 +6,8 @@ import Link from "next/link";
 import { deleteUser } from "@/store/features/user";
 
 const Main = () => {
-  const users = useSelector((state) => state.users);
-
   const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
 
   return (
     <main className="overflow-auto">

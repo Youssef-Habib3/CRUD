@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { addUser } from "@/store/features/user";
+import { createUser } from "@/store/features/user";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const Create = () => {
     e.preventDefault();
 
     // add user in redux
-    dispatch(addUser({ id: users[users.length - 1].id + 1, name, email }));
+    dispatch(createUser({ id: users[users.length - 1].id + 1, name, email }));
 
     navigate.replace("/");
   };

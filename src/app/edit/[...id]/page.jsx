@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { updateUser } from "@/store/features/user";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
@@ -12,7 +12,8 @@ const Create = () => {
   const users = useSelector((state) => state.users);
 
   // get id
-  const existingUser = users.filter((f) => f.id);
+  const { id } = useParams();
+  const existingUser = users.filter((f) => f.id == id);
 
   const { name, email } = existingUser[0];
 
@@ -27,9 +28,7 @@ const Create = () => {
     e.preventDefault();
 
     // update redux
-    dispatch(
-      updateUser({ id: existingUser[0].id, name: uName, email: uEmail })
-    );
+    dispatch(updateUser({ id: id, name: uName, email: uEmail }));
 
     navigate.replace("/");
   };
